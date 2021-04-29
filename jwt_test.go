@@ -27,3 +27,16 @@ func TestCreateToken(t *testing.T) {
 	}
 	t.Log(token)
 }
+
+func TestParserToken(t *testing.T) {
+	token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQYXJhbXMiOnsiaWQiOiIxIiwibmFtZSI6InNvbmcifSwiZXhwIjoxNjU1NjY0Njg1LCJpc3MiOiJRSCIsIm5iZiI6MTYxOTY2MzY4NX0.isLU4jHbU1ydao7cTH5ra2zzNM0-QlIJD06z1OXKs2c"
+	j := NewJWT()
+	claims, err := j.ParserToken(token)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	name := claims.Params["name"]
+	t.Log(name)
+
+}
