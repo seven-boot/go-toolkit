@@ -45,3 +45,10 @@ func Failed(ctx *gin.Context, s string) {
 		Msg:  s,
 	})
 }
+
+func FailedInfo(ctx *gin.Context, code int, s string) {
+	ctx.JSON(http.StatusOK, Result{
+		Code: code,
+		Msg:  s,
+	})
+}
